@@ -1,7 +1,6 @@
 import os
 import json
-import detect
-import cv2
+from others import detect
 
 
 def main():
@@ -42,47 +41,5 @@ def main():
         detect.main()
 
 
-def switch_rtsp_streams(rtsp_urls):
-    current_stream = 0
-    num_streams = len(rtsp_urls)
-
-    # 打开第一个RTSP流
-    cap = cv2.VideoCapture(rtsp_urls[current_stream], cv2.CAP_FFMPEG)
-
-    while True:
-        # 读取视频帧
-        ret, frame = cap.read()
-
-        # 显示当前帧
-        cv2.imshow("RTSP Stream", frame)
-
-        # 等待用户按键
-        key = cv2.waitKey(1)
-
-        # 如果按下 'q' 键，退出循环
-        if key == ord('q'):
-            break
-
-        # 如果按下 's' 键，切换到下一个RTSP流
-        if key == ord('s'):
-            # 关闭当前RTSP流
-            cap.release()
-
-            # 切换到下一个RTSP流
-            current_stream = (current_stream + 1) % num_streams
-            cap = cv2.VideoCapture(rtsp_urls[current_stream], cv2.CAP_FFMPEG)
-
-    # 释放资源
-    cap.release()
-    cv2.destroyAllWindows()
-
-
-# RTSP流URL列表
-rtsp_urls = ["rtsp://example.com/stream1", "rtsp://example.com/stream2", "rtsp://example.com/stream3"]
-
-# 切换RTSP流
-switch_rtsp_streams(rtsp_urls)
-
-
-# if __name__ == '__main__':
-#     main()
+if __name__ == '__main__':
+    main()
