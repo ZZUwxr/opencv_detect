@@ -1,0 +1,11 @@
+{
+    "video_fps": 25,
+    "array_num": 4,
+    "time_interval": 3,
+    "video_path": "videos/input\\input_1.mp4",
+    "output_path": "save/videos",
+    "input_path": "videos/input",
+    "processed_files": [
+        "input_1.mp4"
+    ]
+}
