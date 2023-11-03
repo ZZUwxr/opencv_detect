@@ -1,0 +1,2 @@
+# opencv_detect
+本项目使用opencv对旋转物体的转速进行检测
